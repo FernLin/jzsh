@@ -11,7 +11,7 @@
 	export default {
 		data() {
 			return {
-				title: '赣州精致生活'
+				title: '赣州精致生活小程序'
 			}
 		},
 		onLoad() {
