@@ -1,17 +1,30 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+		<swiper class="swiper" autoplay :interval="2000" :duration="500">
+			<swiper-item v-for="(item, index) in bannerList" :key="index">
+				<view class="swiper-item">
+					<image :src="item.url" class="swiper-item-img" mode="scaleToFill" />
+				</view>
+			</swiper-item>
+		</swiper>
+		<uni-easyinput prefixIcon="search" v-model="value" placeholder="搜索最具人气的餐厅/酒店" @iconClick="iconClick"></uni-easyinput>
 	</view>
 </template>
 
 <script>
+	import bannerOne from "@/static/testPic/bannerOne.png";
+	import bannerTwo from "@/static/testPic/bannerTwo.png";
+	import homebgPic from "@/static/image/homebgPic.png";
 	export default {
 		data() {
 			return {
-				title: '赣州精致生活小程序'
+				bannerList: [{
+						url: bannerOne
+					},
+					{
+						url: bannerTwo
+					}
+				]
 			}
 		},
 		onLoad() {
@@ -23,30 +36,23 @@
 	}
 </script>
 
-<style>
+<style scoped lang="scss">
 	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+		.swiper {
+			height: 360rpx;
+			line-height: 360rpx;
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
+			.swiper-item {
+				display: block;
+				height: 100%;
+				text-align: center;
 
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
+				.swiper-item-img {
+					height: 100%;
+					width: 690rpx;
+				}
+			}
+		}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
 	}
 </style>
