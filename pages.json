@@ -1,9 +1,22 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "赣州精致生活"
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "订单"
+			}
+		},
+		{
+			"path": "pages/member/index",
+			"style": {
+				"navigationBarTitleText": "会员"
 			}
 		}
 	],
@@ -12,5 +25,30 @@
 		"navigationBarTitleText": "赣州精致生活",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#494B4F",
+		"selectedColor": "#0F1E64",
+		"borderStyle": "black",
+		"backgroundColor": "#F4F7FF",
+		"list": [{
+				"pagePath": "pages/home/index",
+				"iconPath": "static/icon/tabbarHome.png",
+				"selectedIconPath": "static/icon/tabbarHomeSelected.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/order/index",
+				"iconPath": "static/icon/tabbarOrder.png",
+				"selectedIconPath": "static/icon/tabbarOrderSelected.png",
+				"text": "订单"
+			},
+			{
+				"pagePath": "pages/member/index",
+				"iconPath": "static/icon/tabbarMember.png",
+				"selectedIconPath": "static/icon/tabbarMemberSelected.png",
+				"text": "会员"
+			}
+		]
 	}
 }

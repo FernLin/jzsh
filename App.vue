@@ -1,5 +1,8 @@
 <script>
 	export default {
+		globalData: {
+			mpName: '赣州精致生活'
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},

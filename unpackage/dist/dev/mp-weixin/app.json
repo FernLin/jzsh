@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/home/index",
+    "pages/order/index",
+    "pages/member/index"
   ],
   "subPackages": [],
   "window": {
@@ -8,6 +10,32 @@
     "navigationBarTitleText": "赣州精致生活",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#494B4F",
+    "selectedColor": "#0F1E64",
+    "borderStyle": "black",
+    "backgroundColor": "#F4F7FF",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "static/icon/tabbarHome.png",
+        "selectedIconPath": "static/icon/tabbarHomeSelected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/index",
+        "iconPath": "static/icon/tabbarOrder.png",
+        "selectedIconPath": "static/icon/tabbarOrderSelected.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/member/index",
+        "iconPath": "static/icon/tabbarMember.png",
+        "selectedIconPath": "static/icon/tabbarMemberSelected.png",
+        "text": "会员"
+      }
+    ]
   },
   "usingComponents": {}
 }

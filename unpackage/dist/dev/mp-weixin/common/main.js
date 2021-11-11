@@ -89,6 +89,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
+  globalData: {
+    mpName: '赣州精致生活' },
+
   onLaunch: function onLaunch() {
     console.log('App Launch');
   },
