@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
-
-/***/ 1:
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
+/* 0 */,
+/* 1 */
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -2054,159 +2054,7 @@ uni$1;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 2)))
 
 /***/ }),
-
-/***/ 11:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 18:
-/*!**********************************************************!*\
-  !*** E:/wechatProject/jzsh/static/testPic/bannerOne.png ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/static/testPic/bannerOne.png";
-
-/***/ }),
-
-/***/ 19:
-/*!**********************************************************!*\
-  !*** E:/wechatProject/jzsh/static/testPic/bannerTwo.png ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/static/testPic/bannerTwo.png";
-
-/***/ }),
-
-/***/ 2:
+/* 2 */
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -2236,30 +2084,7 @@ module.exports = g;
 
 
 /***/ }),
-
-/***/ 20:
-/*!********************************************************!*\
-  !*** E:/wechatProject/jzsh/static/image/homebgPic.png ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/static/image/homebgPic.png";
-
-/***/ }),
-
-/***/ 21:
-/*!******************************************************!*\
-  !*** E:/wechatProject/jzsh/static/icon/scanIcon.png ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAApCAYAAABz26rUAAAAAXNSR0IArs4c6QAAAnxJREFUWEftWdF1EzEQnKkgoQJIBSEVABUQKkhSAVABUAFQAaECkgpwKkhSAaGDpILhTZ6OJwlZJ9kP++J4f/zeeXXa2V2ddneIikg6BHAE4CWA3ZougBOSpyM6939L+gzg3YjuDYAZgO8k/VsUlp5KsrE/guEtNlnnluSTFmVJatGLdOyY9yRv83X/AAjG/wTwvHOTC5KO1KhIugKwP6qYKsxIvmoBYLROm0HuAPiZN3VYy6GshDlfEJxUc9Cz4MBjADvR+k8kP8bvSyIgyQt/RQrXTqNS6Dq9t5B6sMf5/zS8wCm0F9uTA/DB8gEbxMpzvb6QVZ2LJDktndKDJB+LHMAZgNdBszmnO23qVpdkzw+plKRRDsDhejFBALFdWwDdKbDsAknbCCzrxKXWP9oInJN0Mbd26YmAr+kPweLm6vJ/I5T0BcDbsM8bkr6v7qVUzPnmc2Xp2mcyEkr7m9yuYjk9GasbDNkMAJKG8qEB83RUSF5Qkiu9pkZkOqb/tWRmAL3t3aRwGIC7nm+TsqrdmJPNOMTtgKenuXkRCD3oDsnzKflbklvdu3zIlbeU8YH2IMk1yNpFUjxseJBNfdyRJVXyQ2zqk2nJFsAqDkjW0GwjsAqnJ3s8qgjEPbHbt72Vu7uwoSRPzD05t1RHi3llerDu3liSeYTLCFf1Isv5ATf2ngKsZcQe+AFTXTEZkoz8S1OJeIRh4B5tjzI0AK5biZDA0NQoppihicnFryQTcnAeR+aru5fDuiJ50HJmJDklejm4IltUYynt9YHsaLELJJvK8wXaWFfGx00sZWxpKK19sN30DzzVPDDN1auk+Gs3732/A098WuOJ/wBkymBOCt55wQAAAABJRU5ErkJggg=="
-
-/***/ }),
-
-/***/ 3:
+/* 3 */
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -8307,8 +8132,7 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 2)))
 
 /***/ }),
-
-/***/ 4:
+/* 4 */
 /*!*************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-i18n/dist/uni-i18n.es.js ***!
   \*************************************************************/
@@ -8771,8 +8595,7 @@ function resolveLocaleChain(locale) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 2)))
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /*!****************************************!*\
   !*** E:/wechatProject/jzsh/pages.json ***!
   \****************************************/
@@ -8782,8 +8605,331 @@ function resolveLocaleChain(locale) {
 
 
 /***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/***/ 52:
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
+/*!**********************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/bannerOne.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/bannerOne.png";
+
+/***/ }),
+/* 19 */
+/*!**********************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/bannerTwo.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/bannerTwo.png";
+
+/***/ }),
+/* 20 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopImg1.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopImg1.png";
+
+/***/ }),
+/* 21 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopImg2.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopImg2.png";
+
+/***/ }),
+/* 22 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopImg3.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopImg3.png";
+
+/***/ }),
+/* 23 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopImg4.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopImg4.png";
+
+/***/ }),
+/* 24 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopImg5.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopImg5.png";
+
+/***/ }),
+/* 25 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopPic1.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopPic1.png";
+
+/***/ }),
+/* 26 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopPic2.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopPic2.png";
+
+/***/ }),
+/* 27 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopPic3.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopPic3.png";
+
+/***/ }),
+/* 28 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopPic4.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopPic4.png";
+
+/***/ }),
+/* 29 */
+/*!*************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/testPic/testShopPic5.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/testPic/testShopPic5.png";
+
+/***/ }),
+/* 30 */
+/*!**********************************************************!*\
+  !*** E:/wechatProject/jzsh/static/icon/showGridIcon.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAg9JREFUWEfdWNtRQjEU3K1A6cAOxArUCsQK1A60AqUC6UCoQEqADqACSxAqOM7eSTBEHiEnX94ZPiC5m8157NmBSB4zewTwAKAP4DxdA7ACsAAwJjnJ1ra+1uBQCGamQz8B3Bw6IFmbAbgnKXKbx4MTiQj4upBE3DYjeZsRqcZhCONHAFwDeAYwzW8bIqfUjQCchf1PJMfJWj2OmaW3ULinBfmPB85Jdul045iZ8tzdkGSXqiNEVE/fYc+KZC8Q8eGYmcWDS4iEQ/+848ZxA4QounHcAP+RiKfI1iQ7BXZH1t12v+3rK/pM0BQdiZb0YUu+E9F6T+ZQKmg+IjvE6JiUxPWNmDVJTTL0pKil82YOYJBGzV0j2dBSWvSRDYjzJG7RHIo2oJsv2bv+1JTm4oj0b7oPQG9XjWXE01GxPjpbSklm3fdCUlN675M1yXyLSI2ziidlwPpZdmJS3H1JsbZwaDXGqOu+1g5Nea/qvmYOzdt9ItLEoZUW9b59IuIZehuH1oKIT4gye2lmbwDugige4idxlEkfapMi0oyImQn88sToLEheNSMSIvF6Iom4fdiSSBoNhXt0SObNTIInS6Fn4S3WaodmZhcAvmJImrVvVh975T0ZCSrqmMplLmgeh5YCn1oqQ4/Ebzm0MLNqumZJsp/+LVE1I/Krh+4ZFLTxMuiIIoldNqDKoZ2ai3z/D2YD8KblkVSeAAAAAElFTkSuQmCC"
+
+/***/ }),
+/* 31 */
+/*!**************************************************************!*\
+  !*** E:/wechatProject/jzsh/static/icon/showVerticalIcon.png ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAXdJREFUWEftV9tRAzEM3K0AqIAW6ADogFRA6IBOoANCBaSEpANKSCogqUDMeuSMx3fE9/BHhrH/bixL65Ul7RHJMrMlgGcAdwCu0z0ABwDfAFYkP7O92Z+UBzNT0C8ADwM9bgAsSApclRWByPH9SI8bko8jz/xpTk/Hh1scAbwCWPfd1m3fAVy5/QvJlbMqNsVqntISVrG6EJCUDdG9PncyA74lGdJpZnIYAZaC5/s7ATk5IBlSVQCiG/+4zYHkTQUgewGxGHgIEA/aOWNmYkZpui1dJtvfA1hWAzIyeMf8/wHx1MyqmjmP9UgylKuZ7Sa8j5iiUDWXUL6hajRfYkMTO/pWf+i0b7d9S5pW3tCmV43TOqXFn5rZ3IrR+XToqaMOnTdbAE/Vh168kVOv1EgG5O1acyjKgDBfaq5iS68Z7JyvywTSFFpSNVPKtym08OibQuur/T5V1xTaWJ1b6tDVpGJTaE51rR+sptC6/zXeLaXEm0ITGb+SvFT+W/yfugAAAABJRU5ErkJggg=="
+
+/***/ }),
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */
+/*!********************************************************!*\
+  !*** E:/wechatProject/jzsh/static/image/homebgPic.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/static/image/homebgPic.png";
+
+/***/ }),
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */
 /*!*********************************************************************************!*\
   !*** E:/wechatProject/jzsh/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*********************************************************************************/
@@ -8924,6 +9070,5 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   "shop": "\uE609" };exports.default = _default;
 
 /***/ })
-
-}]);
+]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map
