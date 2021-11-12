@@ -98,38 +98,17 @@
 		}
 	}
 
-	.default-btn {
-		font-size: 26rpx;
-		height: 56rpx;
-		line-height: 56rpx;
-		margin-top: 18rpx;
-		border: 1rpx solid #FEF1E0;
-		border-radius: 28rpx;
-		width: 212rpx;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
 	.self-checkout-btn {
 		color: #FFFFFF;
+		margin-top: 18rpx;
 	}
 
 	.order-online-btn {
+		margin-top: 18rpx;
 		color: #653712;
 		background: linear-gradient(270deg, #FECC82 0%, #EFCDAD 45%, #FFEADE 100%);
 	}
-
-	.triangle-default {
-		display: inline-block;
-		margin-left: 12rpx;
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-width: 8rpx 0 8rpx 13rpx;
-		border-color: transparent transparent transparent #653712;
-	}
-
+	
 	.self-checkout-triangle {
 		border-color: transparent transparent transparent #FFFFFF;
 	}

@@ -13,6 +13,19 @@
 					</view>
 				</swiper-item>
 			</swiper>
+			<view v-if="billList && billList.length > 0" class="notice-contnent">
+				<view>
+					<image src="../../static/icon/noticeIcon.png" mode="scaleToFill" class="notice-img" />
+					<view class="notice-word">
+						<view>Hi，{{mpName}}提醒您：</view>
+						<view>您有{{billList.length}}笔账单已生成，请及时支付...</view>
+					</view>
+				</view>
+				<view :class="['default-btn', 'bill-btn']" @click="checkBillDetail">
+					点击进入
+					<text class="triangle-default" />
+				</view>
+			</view>
 			<view class="area-input">
 				<uni-easyinput prefixIcon="search" v-model="value" placeholder="搜索最具人气的餐厅/酒店" @iconClick="iconClick"
 					:styles="styles" :placeholderStyle="placeholderStyle" />
@@ -44,7 +57,8 @@
 					@click="switchShowType" mode="aspectFit" />
 			</view>
 			<view class="shop-list">
-				<shop-detail-vertical v-for="(item,index) in shopList" :shopDetail="item" :key="index" :showType="showType" />
+				<shop-detail-vertical v-for="(item,index) in shopList" :shopDetail="item" :key="index"
+					:showType="showType" />
 			</view>
 		</view>
 	</view>
@@ -63,7 +77,7 @@
 	import testShopPic3 from "@/static/testPic/testShopPic3.png";
 	import testShopPic4 from "@/static/testPic/testShopPic4.png";
 	import testShopPic5 from "@/static/testPic/testShopPic5.png";
-	// ************上面的是开发引入的测试图片，正式使用时需删除**************
+	// ************TODO:上面的是开发引入的测试图片，正式使用时需删除**************
 	import showGridIcon from "@/static/icon/showGridIcon.png";
 	import showVerticalIcon from "@/static/icon/showVerticalIcon.png";
 	import shopDetailVertical from "@/components/shopDetailVertical.vue";
@@ -81,12 +95,9 @@
 					borderColor: '#707070',
 				},
 				mpName: "", // 小程序名称
-				bannerList: [{
-					url: bannerOne
-				}, {
-					url: bannerTwo
-				}],
-				showType: 'grid', // 商店展示类型
+				bannerList: [],
+				billList: [],
+				showType: 'vertical', // 商店展示类型
 				shopList: [{ // 商家信息数据列表（TODO:当前字段为前端开发字段，正式数据字段待前后端统一）
 					verticalImg: testShopImg1,
 					gridImg: testShopPic1,
@@ -125,10 +136,34 @@
 				}]
 			}
 		},
-		onShow() {
+		onReady() {
 			this.mpName = getApp().globalData.mpName;
+			// TODO: 获取轮播图数据
+			this.bannerList = [{
+				url: bannerOne
+			}, {
+				url: bannerTwo
+			}];
+			console.log('测试ready');
+		},
+		onShow() {
+			//TODO: 每次展示当前页面的时候都要访问接口，获取当前用户是否有待处理的账单
+			this.billList = [{
+				id: 1,
+				shopName: '肯德基',
+				billId: 9527
+			}, {
+				id: 2,
+				shopName: '奈雪の茶',
+				billId: 2021
+			}];
+			console.log('获取当前用户是否有待处理账单');
 		},
 		methods: {
+			checkBillDetail() {
+				//TODO: 跳转账单详情页
+				console.log('跳转至账单详情页！');
+			},
 			jumpPage(areaName) {
 				console.log('跳转' + areaName);
 				//TODO: 跳转至不同页面
@@ -191,6 +226,57 @@
 				}
 			}
 
+			.notice-contnent {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				height: 98rpx;
+				background: linear-gradient(90deg, #F8D7B8 0%, #EFCDAD 100%);
+				border-radius: 20rpx;
+				margin: 20rpx 30rpx 0;
+				padding: 0 12rpx;
+				color: #653712;
+				
+				view {
+					&:first-child {
+						display: flex;
+						align-items: center;
+					}
+				}
+
+				.notice-img {
+					width: 40rpx;
+					height: 48rpx;
+				}
+
+				.notice-word {
+					margin-left: 16rpx;
+					view {
+						&:first-child {
+							font-size: 28rpx;
+						}
+
+						&:last-child {
+							font-size: 24rpx;
+						}
+					}
+				}
+
+				.bill-btn {
+					background-color: #FFFFFF;
+					border: 8rpx solid #E6B98F;
+					width: 140rpx;
+					height: 60rpx;
+					border-radius: 40rpx;
+					font-size: 24rpx;
+				}
+
+				.triangle-default {
+					margin-left: 2rpx;
+				}
+			}
+
 			.area-input {
 				margin-top: 20rpx;
 				padding: 0 30rpx;
@@ -240,6 +326,7 @@
 					height: 48rpx;
 				}
 			}
+
 			.shop-list {
 				display: flex;
 				flex: 1;
