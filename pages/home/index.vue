@@ -3,7 +3,7 @@
 		<view class="area">
 			<image src="@/static/image/homebgPic.png" class="homebg-img" mode="aspectFit" />
 			<view class="header">
-				<image src="@/static/icon/scanIcon.png" class="scan-img" mode="aspectFit" />
+				<image src="@/static/icon/scanIcon.png" class="scan-img" mode="aspectFit" @click="scanCode" />
 				<text class="header-name">{{mpName}}</text>
 			</view>
 			<swiper class="swiper" autoplay :interval="2000" :duration="500">
@@ -26,11 +26,10 @@
 					<text class="triangle-default" />
 				</view>
 			</view>
-			<view class="area-input">
-				<uni-easyinput prefixIcon="search" v-model="value" placeholder="搜索最具人气的餐厅/酒店" @iconClick="iconClick"
-					:styles="styles" :placeholderStyle="placeholderStyle" />
+			<view class="area-input" @click="jumpToSearch">
+				<image src="../../static/icon/searchIcon.png" mode="aspectFit" class="search-img" />
+				<text>搜索最具人气的餐厅/酒店</text>
 			</view>
-
 		</view>
 		<view class="bt-content">
 			<view @click="jumpPage('delicacy')">
@@ -57,8 +56,7 @@
 					@click="switchShowType" mode="aspectFit" />
 			</view>
 			<view class="shop-list">
-				<shop-detail-vertical v-for="(item,index) in shopList" :shopDetail="item" :key="index"
-					:showType="showType" />
+				<shop-detail v-for="(item,index) in shopList" :shopDetail="item" :key="index" :showType="showType" />
 			</view>
 		</view>
 	</view>
@@ -80,20 +78,15 @@
 	// ************TODO:上面的是开发引入的测试图片，正式使用时需删除**************
 	import showGridIcon from "@/static/icon/showGridIcon.png";
 	import showVerticalIcon from "@/static/icon/showVerticalIcon.png";
-	import shopDetailVertical from "@/components/shopDetailVertical.vue";
+	import shopDetail from "@/components/shopDetail.vue";
 	export default {
 		components: {
-			shopDetailVertical
+			shopDetail
 		},
 		data() {
 			return {
 				showGridIcon: showGridIcon,
 				showVerticalIcon: showVerticalIcon,
-				placeholderStyle: "color:#97A4DB;font-size:30rpx",
-				styles: {
-					color: '#FFFFFF',
-					borderColor: '#707070',
-				},
 				mpName: "", // 小程序名称
 				bannerList: [],
 				billList: [],
@@ -160,9 +153,19 @@
 			console.log('获取当前用户是否有待处理账单');
 		},
 		methods: {
+			scanCode() {
+				//TODO: 打开微信扫一扫功能
+				console.log('打开了扫一扫！');
+			},
 			checkBillDetail() {
 				//TODO: 跳转账单详情页
 				console.log('跳转至账单详情页！');
+			},
+			jumpToSearch() {
+				console.log('跳转至搜索页面');
+				uni.navigateTo({
+					url: '/pages/homeChild/searchPage'
+				});
 			},
 			jumpPage(areaName) {
 				console.log('跳转' + areaName);
@@ -237,7 +240,7 @@
 				margin: 20rpx 30rpx 0;
 				padding: 0 12rpx;
 				color: #653712;
-				
+
 				view {
 					&:first-child {
 						display: flex;
@@ -252,6 +255,7 @@
 
 				.notice-word {
 					margin-left: 16rpx;
+
 					view {
 						&:first-child {
 							font-size: 28rpx;
@@ -278,13 +282,21 @@
 			}
 
 			.area-input {
-				margin-top: 20rpx;
-				padding: 0 30rpx;
+				margin: 20rpx 30rpx 0;
+				padding-left: 40rpx;
+				background-color: #0C1745;
+				border: 1rpx solid #707070;
+				border-radius: 38rpx;
+				height: 76rpx;
+				display: flex;
+				align-items: center;
+				font-size: 30rpx;
+				color: #97A4DB;
 
-				/deep/ .uni-easyinput__content {
-					background-color: #0C1745;
-					border-radius: 38rpx;
-					height: 76rpx;
+				.search-img {
+					width: 38rpx;
+					height: 38rpx;
+					padding-right: 24rpx;
 				}
 			}
 		}
