@@ -165,8 +165,9 @@
 		.result-content {
 			margin-top: 20rpx;
 			background-color: #131F54;
-			min-height: calc(100vh - 246rpx);
+			height: calc(100vh - 246rpx);
 			position: relative;
+			overflow: scroll;
 
 			.result {
 				padding-top: 20rpx;
